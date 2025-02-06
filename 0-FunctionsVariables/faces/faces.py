@@ -1,6 +1,5 @@
 def convert(str):
-    str2 = str.replace(":)","🙂")
-    return str2.replace(":(","🙁")
+    return str.replace(":)","🙂").replace(":(","🙁")
 
 def main():
     sentence = input("Input: ")
