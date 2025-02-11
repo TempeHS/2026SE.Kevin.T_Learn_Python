@@ -15,41 +15,42 @@ def is_valid(s):
     return all([
         starts_with_letters(s),
         min_max_characters(s),
-        ends_with_numbers(s)
+        ends_with_numbers(s),
+        no_special_characters(s)
         ])
 
 # checks below this line
 def starts_with_letters(string):
     # [0:2] splits it into the first 2 letters only
     if string[0:2].isalpha():
-        print("starts_with_letters = true")
-
         return True
-    
-    else:
-        print("starts_with_letters = false")
 
 def min_max_characters(string):
     if len(string) >= 2 and len(string) <= 6:
-        print("min_max_characters = true")
-
         return True
-    
-    else:
-        print("min_max_characters = false")
 
 def ends_with_numbers(string):
     position = None
     numbers = ""
     for letter in string:
         if letter.isdigit():
-            # gets the position of the first number
+            # gets the position of the number
             position = string.index(letter)
             numbers += letter
-    print(position)
-    print(numbers)
+            break
+    
+    # the [position:] trims the string to be only from the position variable to the end of the string
+    # checks if the end number area thing is all numbers
+    if string[position:].isdigit():
+        #checks if it doesnt start with 0 coz thats bad
+        if string[position:].startswith("0") == False:
+            return True
 
-
+def no_special_characters(string):
+    if string.isalnum():
+        return True
+    else:
+        return False
 # checks above this line
 
 
