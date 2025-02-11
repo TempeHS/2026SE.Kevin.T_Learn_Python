@@ -15,7 +15,7 @@ def is_valid(s):
     return all([
         starts_with_letters(s),
         min_max_characters(s),
-        #ends_with_numbers(s)
+        ends_with_numbers(s)
         ])
 
 # checks below this line
@@ -38,9 +38,20 @@ def min_max_characters(string):
     else:
         print("min_max_characters = false")
 
-#def ends_with_numbers(string):
+def ends_with_numbers(string):
+    position = None
+    numbers = ""
+    for letter in string:
+        if letter.isdigit():
+            # gets the position of the first number
+            position = string.index(letter)
+            numbers += letter
+    print(position)
+    print(numbers)
+
 
 # checks above this line
+
 
 main()
 
