@@ -44,8 +44,7 @@ def generate_integer(level):
     # 10 squared by 3 = 1000 - 1 = 999
 
 def make_problem(level):
-    return "0 + 1"
-    #return str(generate_integer(level)) + " + " + str(generate_integer(level))
+    return str(generate_integer(level)) + " + " + str(generate_integer(level))
 
 def solve_problem(level):
     correct_questions = 0
@@ -67,10 +66,12 @@ def solve_problem(level):
                 break
             else:
                 print("EEE")
+                print(f"Solve: {problem}")
                 print()
                 tries -= 1
                 continue
-        print("thing")
+        if tries <= 0:
+            print(f"Solution: {problem} = {str(eval(problem))}")
     print(correct_questions)
 
 if __name__ == "__main__":
